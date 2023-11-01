@@ -1,5 +1,6 @@
 import { useCallback } from "react";
-
+import {AiOutlineClose} from 'react-icons/ai';
+import Button from "./Button";
 interface ModalProps {
     isOpen?: boolean;
     onClose: () => void;
@@ -35,8 +36,18 @@ const Modal:React.FC<ModalProps> = ({isOpen,onClose,onSubmit,title,body,footer,a
                 {/* Content */}
                 <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline-none focus:outline-none">
                     {/* Header */}
-                    <div className="">
-
+                    <div className="flex items-center justify-between p-10 ronded-t">
+                        <h3 className="text-3xl font-semibold text-white">{title}</h3>
+                        <button onClick={handleClose} className="p-1 ml-auto border-0 text-white hover:opacity-70 transition">
+                            <AiOutlineClose size={28} />
+                        </button>
+                    </div>
+                    {/* Body */}
+                    <div className="relative p-10 flex-auto">
+                    </div>
+                    {/* Footer */}
+                    <div className="flex flex-col gap-2 p-10 ">
+                        <Button disabled={disabled} label={actionLabel} secondary fullWidth large onClick={handleSubmit} />
                     </div>
                 </div>
             </div>
